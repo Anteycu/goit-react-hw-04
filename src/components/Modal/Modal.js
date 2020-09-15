@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import "./Modal.css";
+import PropTypes from "prop-types";
 
 export class Modal extends Component {
+  static propTypes = {
+    largeImageURL: PropTypes.string,
+    onClose: PropTypes.func,
+  };
+
   componentDidMount() {
     window.addEventListener("keydown", this.handleKeyDown);
   }
@@ -19,7 +25,9 @@ export class Modal extends Component {
   render() {
     return (
       <div className="Overlay">
-        <div className="Modal">{this.props.children}</div>
+        <div className="Modal">
+          <img src={this.props.largeImageURL} alt="" />
+        </div>
       </div>
     );
   }

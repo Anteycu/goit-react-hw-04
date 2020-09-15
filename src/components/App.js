@@ -15,7 +15,7 @@ export class App extends Component {
     error: null,
     searchQuery: "",
     page: 1,
-    largeImageUrl: null,
+    largeImageURL: null,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -26,8 +26,11 @@ export class App extends Component {
     }
   }
 
-  toggleModal = () => {
-    this.setState((state) => ({ showModal: !state.showModal }));
+  toggleModal = (largeImageURL) => {
+    this.setState((state) => ({
+      showModal: !state.showModal,
+      largeImageURL,
+    }));
   };
 
   setLargeImage = (url) => {
@@ -58,7 +61,7 @@ export class App extends Component {
   };
 
   render() {
-    const { showModal, loading, images, error } = this.state;
+    const { showModal, loading, images, error, largeImageURL } = this.state;
 
     return (
       <>
@@ -70,7 +73,9 @@ export class App extends Component {
           />
         )}
 
-        {images.length > 0 && <ImageGallery images={images} />}
+        {images.length > 0 && (
+          <ImageGallery images={images} toggleModal={this.toggleModal} />
+        )}
 
         {loading && <Loaders message="Loading..." />}
 
@@ -78,7 +83,12 @@ export class App extends Component {
           <Button handleFetch={this.fetchImages} />
         )}
 
-        {showModal && <Modal onClose={this.toggleModal}></Modal>}
+        {showModal && (
+          <Modal
+            largeImageURL={largeImageURL}
+            onClose={this.toggleModal}
+          ></Modal>
+        )}
       </>
     );
   }

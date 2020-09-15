@@ -19,4 +19,6 @@ export function Button({ handleFetch }) {
   );
 }
 
-Button.propTypes = {};
+Button.propTypes = {
+  handleFetch: PropTypes.func,
+};

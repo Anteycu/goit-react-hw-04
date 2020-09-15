@@ -1,5 +1,6 @@
 import React from "react";
 import Loader from "react-loader-spinner";
+import PropTypes from "prop-types";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 export function Loaders({ message }) {
@@ -10,3 +11,7 @@ export function Loaders({ message }) {
     </>
   );
 }
+
+Loaders.propTypes = {
+  message: PropTypes.string,
+};

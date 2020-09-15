@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiKey = "17976962-b1f0a6808ca31d6d2a32d8551";
-const apiKeyNew = "18309325-d7831a9dfba8f225a0a4fcbba";
+// const apiKeyNew = "18309325-d7831a9dfba8f225a0a4fcbba";
 
 export const fetchImagesWithQuery = (searchQuery, page = 1) => {
   return axios

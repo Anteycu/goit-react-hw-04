@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import "./SearchBar.css";
 
 export class SearchBar extends Component {
-  // static propTypes = {
-  //   onAddContact: PropTypes.func,
-  // };
+  static propTypes = {
+    onSubmit: PropTypes.func,
+  };
 
   state = {
     inputValue: "",

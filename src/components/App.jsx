@@ -1,12 +1,21 @@
 import { useState } from "react";
+import onImgRequest from "../searchImgApi";
 import SearchBar from "./SearchBar/SearchBar";
+import ImageGallery from "./ImageGallery/ImageGallery";
 
 function App() {
-  const [query, setQuery] = useState("");
+  const [photos, setPhotos] = useState([]);
+
+  const onSubmitHandler = searchWord => {
+    onImgRequest(searchWord).then(({ data }) => {
+      setPhotos(data.results);
+    });
+  };
+
   return (
     <>
-      <p>Check query state: {query}</p>
-      <SearchBar request={query} onSearch={setQuery} />
+      <SearchBar onSubmit={onSubmitHandler} />
+      {photos.length > 0 && <ImageGallery photoList={photos} />}
     </>
   );
 }

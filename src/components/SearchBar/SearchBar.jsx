@@ -1,12 +1,33 @@
-const SearchBar = ({ request, onSearch }) => {
+import { useState } from "react";
+
+const SearchBar = ({ onSubmit }) => {
+  const [query, setQuery] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!query) {
+      console.log("Need write smth to search");
+      return;
+    }
+    onSubmit(query);
+  };
+
   return (
-    <input
-      type="text"
-      value={request}
-      onChange={e => {
-        onSearch(e.target.value);
-      }}
-    />
+    <header>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+          value={query}
+          onChange={e => {
+            setQuery(e.target.value);
+          }}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </header>
   );
 };
 

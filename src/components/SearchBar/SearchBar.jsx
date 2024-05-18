@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
@@ -6,7 +7,9 @@ const SearchBar = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (!query) {
-      console.log("Need write smth to search");
+      toast.error("Empty search line", {
+        position: "top-right",
+      });
       return;
     }
     onSubmit(query);

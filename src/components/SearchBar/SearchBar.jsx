@@ -1,7 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSubmit = e => {
@@ -12,7 +12,8 @@ const SearchBar = ({ onSubmit }) => {
       });
       return;
     }
-    onSubmit(query);
+    onSearch(query);
+    setQuery("");
   };
 
   return (
@@ -21,7 +22,6 @@ const SearchBar = ({ onSubmit }) => {
         <input
           type="text"
           autoComplete="off"
-          autoFocus
           placeholder="Search images and photos"
           value={query}
           onChange={e => {

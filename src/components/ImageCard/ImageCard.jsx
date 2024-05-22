@@ -1,9 +1,15 @@
-// links;
-const ImageCard = ({ imgInfo }) => {
+// import ImageModal from "../ImageModal/ImageModal";
+const ImageCard = ({ imgInfo, imgInfoHandler }) => {
   const { alt_description, urls, description, tags, width, height } = imgInfo;
   return (
     <div>
-      <img src={urls.small} alt={alt_description} />
+      <img
+        src={urls.small}
+        alt={alt_description}
+        onClick={() => {
+          imgInfoHandler(imgInfo);
+        }}
+      />
       <p>
         {width}x{height}
       </p>

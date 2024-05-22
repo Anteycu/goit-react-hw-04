@@ -1,11 +1,11 @@
 import ImageCard from "../ImageCard/ImageCard";
 
-const ImageGallery = ({ photoList }) => {
+const ImageGallery = ({ photoList, imgInfoHandler }) => {
   return (
     <ul>
       {photoList.map(({ id, ...props }) => (
         <li key={id}>
-          <ImageCard imgInfo={props} />
+          <ImageCard imgInfo={props} imgInfoHandler={imgInfoHandler} />
         </li>
       ))}
     </ul>

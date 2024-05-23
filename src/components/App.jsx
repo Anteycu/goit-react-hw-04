@@ -6,7 +6,6 @@ import ImageGallery from "./ImageGallery/ImageGallery";
 import Loader from "./Loader/Loader";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import LoaderMoreBtn from "./LoadMoreBtn/LoadMoreBtn";
-import ImageModal from "./ImageModal/ImageModal";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -14,7 +13,6 @@ function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [modalImgInfo, setModalImgInfo] = useState(null);
 
   function fetchPhotos(searchWord, currentPage) {
     return onImgRequest(searchWord, currentPage)
@@ -52,15 +50,10 @@ function App() {
       <Toaster />
       <SearchBar onSearch={onSearchHandler} />
       {error && <ErrorMessage message={error} />}
-      {photos.length > 0 && (
-        <ImageGallery photoList={photos} imgInfoHandler={setModalImgInfo} />
-      )}
+      {photos.length > 0 && <ImageGallery photoList={photos} />}
       {loading && <Loader />}
       {!loading && photos.length > 0 && (
         <LoaderMoreBtn onLoadMore={onLoadMoreHandler} />
-      )}
-      {modalImgInfo && (
-        <ImageModal modalInfo={modalImgInfo} setModalInfo={setModalImgInfo} />
       )}
     </>
   );

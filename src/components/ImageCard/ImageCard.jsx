@@ -1,5 +1,9 @@
-// import ImageModal from "../ImageModal/ImageModal";
-const ImageCard = ({ imgInfo, imgInfoHandler }) => {
+import { useState } from "react";
+import ImageModal from "../ImageModal/ImageModal";
+
+const ImageCard = ({ imgInfo }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const { alt_description, urls, description, tags, width, height } = imgInfo;
   return (
     <div>
@@ -7,7 +11,7 @@ const ImageCard = ({ imgInfo, imgInfoHandler }) => {
         src={urls.small}
         alt={alt_description}
         onClick={() => {
-          imgInfoHandler(imgInfo);
+          setIsOpen(true);
         }}
       />
       <p>
@@ -26,6 +30,7 @@ const ImageCard = ({ imgInfo, imgInfoHandler }) => {
       {/* <a href={links.download} type="image">
         Download
       </a> */}
+      <ImageModal modalInfo={imgInfo} isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };

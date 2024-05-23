@@ -1,5 +1,8 @@
 import { useState } from "react";
+import Modal from "react-modal";
 import ImageModal from "../ImageModal/ImageModal";
+
+Modal.setAppElement("#root");
 
 const ImageCard = ({ imgInfo }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +33,9 @@ const ImageCard = ({ imgInfo }) => {
       {/* <a href={links.download} type="image">
         Download
       </a> */}
-      <ImageModal modalInfo={imgInfo} isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
+        <ImageModal modalInfo={imgInfo} />
+      </Modal>
     </div>
   );
 };

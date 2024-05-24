@@ -30,9 +30,7 @@ const SearchBar = ({ onSearch }) => {
             setQuery(e.target.value);
           }}
         />
-        <button type="submit" className={css.button}>
-          Search
-        </button>
+        <button type="submit">Search</button>
       </form>
     </header>
   );

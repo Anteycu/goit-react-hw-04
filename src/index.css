@@ -94,21 +94,13 @@ button:focus-visible {
   top: 50%;
   left: 50%;
   /* right: auto;
-  bottom: auto;
-  margin-right: -50%; */
+  bottom: auto; */
+  /* margin-right: -50%; */
   transform: translate(-50%, -50%);
   background-color: #747bff;
+  border-radius: 8px;
 }
 
-/* .ReactModal__Body--open {
+.ReactModal__Body--open {
   overflow: hidden;
-} */
-
-/* .ReactModal__Content {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-} */
+}

@@ -5,7 +5,7 @@ const ImageGallery = ({ photoList, onModalPhoto }) => {
   return (
     <ul className={css.imageList}>
       {photoList.map(({ id, ...props }) => (
-        <li key={id}>
+        <li key={id} >
           <ImageCard imgInfo={props} onModalPhoto={onModalPhoto} />
         </li>
       ))}

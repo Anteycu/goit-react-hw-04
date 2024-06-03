@@ -3,7 +3,7 @@ import css from "./ImageCard.module.css";
 const ImageCard = ({ imgInfo, onModalPhoto }) => {
   const { alt_description, urls, description, tags, width, height } = imgInfo;
   return (
-    <div>
+    <div className={css.card}>
       <img
         src={urls.small}
         alt={alt_description}

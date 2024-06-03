@@ -1,12 +1,16 @@
 .thumb {
   display: flex;
   flex-direction: column;
-  width: 85vw;
+  width: 90vw;
   padding: 0.8rem;
   text-align: center;
 
-  @media screen and (min-width:1280px){
-    width: 60vw;
+  @media screen and (min-width: 768px) {
+    width: 80vw;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 55vw;
   }
 }
 

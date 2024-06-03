@@ -8,6 +8,6 @@ axios.defaults.headers.common = {
 };
 
 const onImgRequest = (req, page) =>
-  axios(`/search/photos?query=${req}&page=${page}`);
+  axios(`/search/photos?query=${req}&page=${page}&orientation=landscape`);
 
 export default onImgRequest;

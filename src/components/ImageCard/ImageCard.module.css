@@ -11,3 +11,11 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+.tagsList::before {
+  content: "\005B";
+}
+
+.tagsList::after {
+  content: "\005D";
+}

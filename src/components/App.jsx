@@ -55,11 +55,11 @@ function App() {
       <Toaster />
       <SearchBar onSearch={onSearchHandler} />
       {error && <ErrorMessage message={error} />}
-      {photos.length > 0 && !error ? (
+      {photos.length > 0 && !error && (
         <ImageGallery photoList={photos} onModalPhoto={setModalPhoto} />
-      ) : null}
+      )}
       {loading && <Loader />}
-      {!loading && photos.length > 0 && (
+      {!loading && photos.length > 0 && !error && (
         <LoaderMoreBtn onLoadMore={onLoadMoreHandler} />
       )}
       <Modal

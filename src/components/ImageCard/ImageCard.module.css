@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @media screen and (max-width: 767px) {
+    width: 350px;
+  }
+}
+
+.cardImg {
+  flex: 1;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.tagsList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 4px;
+  row-gap: 4px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tagsList::before {
+  content: "\005B";
+}
+
+.tagsList::after {
+  content: "\005D";
+}

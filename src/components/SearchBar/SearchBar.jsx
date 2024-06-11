@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import css from "./SearchBar.module.css";
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -17,9 +18,10 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
+    <header className={css.header}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
+          className={css.input}
           type="text"
           autoComplete="off"
           placeholder="Search images and photos"

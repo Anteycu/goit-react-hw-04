@@ -1,0 +1,21 @@
+.thumb {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  padding: 0.8rem;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 80vw;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 55vw;
+  }
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
